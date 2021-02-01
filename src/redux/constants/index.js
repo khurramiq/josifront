@@ -1,0 +1,10 @@
+export const userConstants = { CUSuc: 'CU_SUC', CUErr: 'CU_ERR', URErr: 'UR_ERR', ULErr: 'UL_ERR', UProfile: 'U_PROFILE', UData: 'U_DATA', UList: 'U_LIST', UListDel: 'U_LIST_DEL', UListUpt: 'U_LIST_UPT' };
+export const snackBarConstants = { ShowSnack: 'SHOW_SNACK', HideSnack: 'HIDE_SNACK' };
+export const settingConstants = { SetSuc: 'SET_SUC' };
+export const customerConstants = { CUSTSuc: 'CUST_SUC', CUSTErr: 'CUST_ERR', CUSTDel: ' CUST_DEL', CUSTDetails: 'CUST_DETAILS', CUSTReq: 'CUST_REQ' };
+export const surveyConstants = { SURVEYReq: 'SURVEY_REQ', SURVEYSuc: 'SURVEY_SUC', SURVEYErr: 'SURVEY_ERR', SURVEYAdd: 'SURVEY_ADD', SURVEYDel: 'SURVEY_DEL', SURVEYUpt: 'SURVEY_UPT' };
+export const stateConstants = { ITEMReq: 'ITEMS_REQ', ITEMSuc: 'ITEMS_SUC', ITEMErr: 'ITEMS_ERR', ITEMAdd: 'ITEMS_ADD', ITEMDel: 'ITEMS_DEL', ITEMUpt: 'ITEMS_UPT' };
+export const countyConstants = { ITEMReq: 'ITEMC_REQ', ITEMSuc: 'ITEMC_SUC', ITEMErr: 'ITEMC_ERR', ITEMAdd: 'ITEMC_ADD', ITEMDel: 'ITEMC_DEL', ITEMUpt: 'ITEMC_UPT' };
+export const cityConstants = { ITEMReq: 'ITEMCT_REQ', ITEMSuc: 'ITEMCT_SUC', ITEMErr: 'ITEMCT_ERR', ITEMAdd: 'ITEMCT_ADD', ITEMDel: 'ITEMCT_DEL', ITEMUpt: 'ITEMCT_UPT' };
+export const townConstants = { ITEMReq: 'ITEMT_REQ', ITEMSuc: 'ITEMT_SUC', ITEMErr: 'ITEMT_ERR', ITEMAdd: 'ITEMT_ADD', ITEMDel: 'ITEMT_DEL', ITEMUpt: 'ITEMT_UPT' };
+export const navBarConstants = { SETCount: 'SET_COUNT' };
