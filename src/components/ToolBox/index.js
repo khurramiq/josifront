@@ -25,14 +25,14 @@ const ToolBox = (props) => {
     const { open, handleToolDrawerChange, setQuestion, question } = props;
     const tollBoxItems = [
         { text: 'Single Input', icon: TitleIcon },
-        { text: 'Checkbox', icon: CheckBoxIcon },
-        { text: 'Radiogroup', icon: RadioButtonCheckedIcon },
-        { text: 'Dropdown', icon: ArrowDropDownCircleIcon },
-        { text: 'Comment', icon: CommentIcon },
-        { text: 'Rating', icon: StarsIcon },        
-        { text: 'Boolean', icon: LibraryAddCheckIcon },
-        { text: 'Matrix (Single choice)', icon: ViewModuleIcon },
-        { text: 'Multiple Text', icon: FormatListBulletedIcon }
+        // { text: 'Checkbox', icon: CheckBoxIcon },
+        // { text: 'Radiogroup', icon: RadioButtonCheckedIcon },
+        // { text: 'Dropdown', icon: ArrowDropDownCircleIcon },
+        // { text: 'Comment', icon: CommentIcon },
+        // { text: 'Rating', icon: StarsIcon },        
+        // { text: 'Boolean', icon: LibraryAddCheckIcon },
+        // { text: 'Matrix (Single choice)', icon: ViewModuleIcon },
+        // { text: 'Multiple Text', icon: FormatListBulletedIcon }
     ];
     const classes = useStyles();
     const theme = useTheme();

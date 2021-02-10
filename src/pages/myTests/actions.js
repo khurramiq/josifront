@@ -302,135 +302,292 @@ export const checkBoxCorrectAnswerChange = (
 };
 
 export const resetDefaultChoices = (question, setQuestion) => {
-    let newArray = [...question.choiceData.choices];
-    for (let i = 0; i < newArray.length; i++) {
+  let newArray = [...question.choiceData.choices];
+  for (let i = 0; i < newArray.length; i++) {
+    newArray[i] = { ...newArray[i], defaultAnswer: false, userAnswer: false };
+  }
+  setQuestion({
+    ...question,
+    choiceData: { ...question.choiceData, choices: newArray },
+  });
+};
+
+export const resetCorrectChoices = (question, setQuestion) => {
+  let newArray = [...question.choiceData.choices];
+  for (let i = 0; i < newArray.length; i++) {
+    newArray[i] = { ...newArray[i], correctAnswer: false };
+  }
+  setQuestion({
+    ...question,
+    choiceData: { ...question.choiceData, choices: newArray },
+  });
+};
+
+export const radioGroupDefaultAnswerChange = (
+  choiceIndex,
+  question,
+  setQuestion
+) => {
+  let newArray = [...question.choiceData.choices];
+  for (let i = 0; i < newArray.length; i++) {
+    if (i === choiceIndex) {
+      newArray[i] = { ...newArray[i], defaultAnswer: true, userAnswer: true };
+    } else {
       newArray[i] = { ...newArray[i], defaultAnswer: false, userAnswer: false };
     }
-    setQuestion({
-      ...question,
-      choiceData: { ...question.choiceData, choices: newArray },
-    });
+  }
+  setQuestion({
+    ...question,
+    choiceData: { ...question.choiceData, choices: newArray },
+  });
 };
-  
-export const resetCorrectChoices = (question, setQuestion) => {
-    let newArray = [...question.choiceData.choices];
-    for (let i = 0; i < newArray.length; i++) {
+
+export const radioGroupCorrectAnswerChange = (
+  choiceIndex,
+  question,
+  setQuestion
+) => {
+  let newArray = [...question.choiceData.choices];
+  for (let i = 0; i < newArray.length; i++) {
+    if (i === choiceIndex) {
+      newArray[i] = { ...newArray[i], correctAnswer: true };
+    } else {
       newArray[i] = { ...newArray[i], correctAnswer: false };
     }
-    setQuestion({
-      ...question,
-      choiceData: { ...question.choiceData, choices: newArray },
-    });
+  }
+  setQuestion({
+    ...question,
+    choiceData: { ...question.choiceData, choices: newArray },
+  });
 };
-  
-export const radioGroupDefaultAnswerChange = (choiceIndex, question, setQuestion) => {
-    let newArray = [...question.choiceData.choices];
-      for (let i = 0; i < newArray.length; i++) {
-        if (i === choiceIndex) {
-          newArray[i] = { ...newArray[i], defaultAnswer: true, userAnswer:true};
-        } else {
-          newArray[i] = { ...newArray[i], defaultAnswer: false, userAnswer:false};
-        }
-      }
-      setQuestion({
-        ...question,
-        choiceData: { ...question.choiceData, choices: newArray },
-      });
-}
-
-export const radioGroupCorrectAnswerChange = (choiceIndex, question, setQuestion) => {
-    let newArray = [...question.choiceData.choices];
-      for (let i = 0; i < newArray.length; i++) {
-        if (i === choiceIndex) {
-          newArray[i] = { ...newArray[i], correctAnswer: true };
-        } else {
-          newArray[i] = { ...newArray[i], correctAnswer: false };
-        }
-      }
-      setQuestion({
-        ...question,
-        choiceData: { ...question.choiceData, choices: newArray },
-      });
-}
 
 export const dropDownValueChange = (name, value, question, setQuestion) => {
-    if (name==='dropDownDefaultAnswer') {
-        setQuestion({
-            ...question,
-            choiceData: {
-              ...question.choiceData,
-              dropDownDefaultAnswer: value,
-              dropDownUserAnswer: value,
-            },
-          });
-    } else if (name==='dropDownCorrectAnswer') {
-        setQuestion({
-            ...question,
-            choiceData: { ...question.choiceData, dropDownCorrectAnswer: value },
-          });
-    }
-}
+  if (name === "dropDownDefaultAnswer") {
+    setQuestion({
+      ...question,
+      choiceData: {
+        ...question.choiceData,
+        dropDownDefaultAnswer: value,
+        dropDownUserAnswer: value,
+      },
+    });
+  } else if (name === "dropDownCorrectAnswer") {
+    setQuestion({
+      ...question,
+      choiceData: { ...question.choiceData, dropDownCorrectAnswer: value },
+    });
+  }
+};
 
 export const resetDropdownDefaultChoice = (question, setQuestion) => {
-    setQuestion({
-      ...question,
-      choiceData: { ...question.choiceData, dropDownDefaultAnswer: "" },
-    });
+  setQuestion({
+    ...question,
+    choiceData: { ...question.choiceData, dropDownDefaultAnswer: "" },
+  });
 };
-  
+
 export const resetDropdownCorrectChoice = (question, setQuestion) => {
+  setQuestion({
+    ...question,
+    choiceData: { ...question.choiceData, dropDownCorrectAnswer: "" },
+  });
+};
+
+export const handleRatingChange = (field, value, question, setQuestion) => {
+  if (field === "minRate") {
     setQuestion({
       ...question,
-      choiceData: { ...question.choiceData, dropDownCorrectAnswer: "" },
+      rating: { ...question.rating, minRate: value },
     });
-};
-  
-export const handleRatingChange = (field, value, question, setQuestion) => {
-    if (field === "minRate") {
+  } else if (field === "maxRate") {
+    setQuestion({
+      ...question,
+      rating: { ...question.rating, maxRate: value },
+    });
+  } else if (field === "rateStep") {
+    setQuestion({
+      ...question,
+      rating: { ...question.rating, rateStep: value },
+    });
+  } else if (field === "minRateDisc") {
+    if (value.length <= 20) {
       setQuestion({
         ...question,
-        rating: { ...question.rating, minRate: value },
-      });
-    } else if (field === "maxRate") {
-      setQuestion({
-        ...question,
-        rating: { ...question.rating, maxRate: value },
-      });
-    } else if (field === "rateStep") {
-      setQuestion({
-        ...question,
-        rating: { ...question.rating, rateStep: value },
-      });
-    } else if (field === "minRateDisc") {
-      if (value.length <= 20) {
-        setQuestion({
-          ...question,
-          rating: { ...question.rating, minRateDisc: value },
-        });
-      }
-    } else if (field === "maxRateDisc") {
-      if (value.length <= 20) {
-        setQuestion({
-          ...question,
-          rating: { ...question.rating, maxRateDisc: value },
-        });
-      }
-    } else if (field === "defaultAnswer") {
-      setQuestion({
-        ...question,
-        rating: { ...question.rating, defaultAnswer: value, userAnswer: value },
-      });
-    } else if (field === "correctAnswer") {
-      setQuestion({
-        ...question,
-        rating: { ...question.rating, correctAnswer: value },
+        rating: { ...question.rating, minRateDisc: value },
       });
     }
-};
-  
-export const resetRating = (question, setQuestion) => {
+  } else if (field === "maxRateDisc") {
+    if (value.length <= 20) {
+      setQuestion({
+        ...question,
+        rating: { ...question.rating, maxRateDisc: value },
+      });
+    }
+  } else if (field === "defaultAnswer") {
     setQuestion({
       ...question,
-      rating: { ...question.rating, defaultAnswer: 0, correctAnswer: 0 },
+      rating: { ...question.rating, defaultAnswer: value, userAnswer: value },
     });
-  };
+  } else if (field === "correctAnswer") {
+    setQuestion({
+      ...question,
+      rating: { ...question.rating, correctAnswer: value },
+    });
+  }
+};
+
+export const resetRating = (question, setQuestion) => {
+  setQuestion({
+    ...question,
+    rating: { ...question.rating, defaultAnswer: 0, correctAnswer: 0 },
+  });
+};
+
+export const changeValidationType = (type, question, setQuestion) => {
+  setQuestion({
+    ...question,
+    validators: { ...question.validators, validatorType: type },
+  });
+};
+
+export const changeValidationErrorValues = (
+  type,
+  field,
+  value,
+  question,
+  setQuestion
+) => {
+  if (type === "textValidator" && field === "errorText") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        textValidator: {
+          ...question.validators.textValidator,
+          errorText: value,
+        },
+      },
+    });
+  } else if (type === "textValidator" && field === "minLength") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        textValidator: {
+          ...question.validators.textValidator,
+          minLength: value,
+        },
+      },
+    });
+  } else if (type === "textValidator" && field === "maxLength") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        textValidator: {
+          ...question.validators.textValidator,
+          maxLength: value,
+        },
+      },
+    });
+  } else if (type === "textValidator" && field === "allowDigits") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        textValidator: {
+          ...question.validators.textValidator,
+          allowDigits: value,
+        },
+      },
+    });
+  } else if (type === "numericValidator" && field === "errorText") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        numericValidator: {
+          ...question.validators.numericValidator,
+          errorText: value,
+        },
+      },
+    });
+  } else if (type === "numericValidator" && field === "minValue") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        numericValidator: {
+          ...question.validators.numericValidator,
+          minValue: value,
+        },
+      },
+    });
+  } else if (type === "numericValidator" && field === "maxValue") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        numericValidator: {
+          ...question.validators.numericValidator,
+          maxValue: value,
+        },
+      },
+    });
+  } else if (type === "emailValidator" && field === "errorText") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        emailValidator: {
+          ...question.validators.emailValidator,
+          errorText: value,
+        },
+      },
+    });
+  } else if (type === "emailValidator" && field === "maxLength") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        emailValidator: {
+          ...question.validators.emailValidator,
+          maxLength: value,
+        },
+      },
+    });
+  } else if (type === "choiceDataValidator" && field === "requiredErrorText") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        choiceDataValidator: {
+          ...question.validators.choiceDataValidator,
+          requiredErrorText: value,
+        },
+      },
+    });
+  } else if (type === "choiceDataValidator" && field === "minCount") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        choiceDataValidator: {
+          ...question.validators.choiceDataValidator,
+          minCount: value,
+        },
+      },
+    });
+  } else if (type === "choiceDataValidator" && field === "maxCount") {
+    setQuestion({
+      ...question,
+      validators: {
+        ...question.validators,
+        choiceDataValidator: {
+          ...question.validators.choiceDataValidator,
+          maxCount: value,
+        },
+      },
+    });
+  }
+};

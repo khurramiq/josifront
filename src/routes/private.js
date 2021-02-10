@@ -1,12 +1,20 @@
-import React from "react";
+import React,{ useEffect, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../pages/home";
-import MyTests from "../pages/myTests";
-import TakeTest from "../pages/takeTest";
-import Answers from "../pages/answers";
-import Survey from "../pages/survey";
+import { recentSurvey, getAllUserSurveys } from "../redux/actions/surveyActions";
+import { useDispatch } from "react-redux";
+const MyTests = lazy(() => import("../pages/myTests"));
+const TakeTest = lazy(() => import("../pages/takeTest"));
+const Answers = lazy(() => import("../pages/answers"));
+const Survey = lazy(() => import("../pages/survey"));
 
-export default () => {    
+export default () => {   
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllUserSurveys());
+    dispatch(recentSurvey());
+  }, []);
+
   return (
     <Switch>
       <Route exact path="/" component={Home} />

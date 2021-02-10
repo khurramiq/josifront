@@ -20,7 +20,6 @@ export const loginUser = (data) => async (dispatch) => {
     if (res.data.token && !res.data.error) {
       dispatch({ type: ShowSnack, payload: "Logged in successfully" });
       dispatch(setCurrentUser(res.data.token));
-      console.log(res.data.token)
     } else {
       dispatch({ type: ULErr, payload: res.data.error });
     }

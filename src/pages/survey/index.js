@@ -21,8 +21,7 @@ const SurveyForm = (props) => {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(survey);
-    dispatch(createSurvey(survey));
+    dispatch(createSurvey(survey));    
   };
 
   return (
