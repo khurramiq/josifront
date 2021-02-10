@@ -20,7 +20,7 @@ export const createQuestion = data => async dispatch => {
 export const recentQuestion = data => async dispatch => {
     try {
         var res = await api.get(`/question/recent_question/${data.surveyId}`, { headers: { 'authorization': `${localStorage.getItem('token')}` } });
-        if (res.data.recentQuestion && !res.data.error || res.data.recentQuestion==='') {
+        if ((res.data.recentQuestion && !res.data.error) || res.data.recentQuestion==='') {
             dispatch({ type: QUESTION_RECENT, payload: res.data.recentQuestion })
         } else {
             dispatch({ type: QUESTIONErr, payload: res.data.error });

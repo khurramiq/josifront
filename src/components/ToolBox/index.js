@@ -10,14 +10,14 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TitleIcon from '@material-ui/icons/Title';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
-import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
-import CommentIcon from '@material-ui/icons/Comment';
-import StarsIcon from '@material-ui/icons/Stars';
-import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+// import CheckBoxIcon from '@material-ui/icons/CheckBox';
+// import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+// import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
+// import CommentIcon from '@material-ui/icons/Comment';
+// import StarsIcon from '@material-ui/icons/Stars';
+// import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
+// import ViewModuleIcon from '@material-ui/icons/ViewModule';
+// import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 
 import useStyles from './styles';
 

@@ -17,7 +17,7 @@ import { Grid } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import Modal from "../../../components/alerts/modal";
 import { deleteQuestion } from "../../../redux/actions/questionActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   handleField,

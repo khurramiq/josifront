@@ -13,6 +13,7 @@ export default () => {
   useEffect(() => {
     dispatch(getAllUserSurveys());
     dispatch(recentSurvey());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

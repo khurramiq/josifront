@@ -26,16 +26,19 @@ const DesignQuestion = (props) => {
 
   useEffect(() => {
     setQuestion({ ...question, survey: recentSurvey });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (_question.isSuccess) {
       setQuestion({ ...initialState, survey: recentSurvey });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [_question.isSuccess]);
 
   useEffect(() => {
     setQuestion({ ...question, survey: _survey.recentSurvey });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [_survey.recentSurvey]);
 
   const isExist = _id => {

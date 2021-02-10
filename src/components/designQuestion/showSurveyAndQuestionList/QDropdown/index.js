@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import { updateRecentSurvey } from '../../../../redux/actions/surveyActions';
 import { updateRecentQuestion } from '../../../../redux/actions/questionActions';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 
 const useStyles = makeStyles((theme) => ({

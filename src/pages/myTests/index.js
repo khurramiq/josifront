@@ -24,6 +24,7 @@ const MyTests = () => {
       dispatch(getAllSurveyQuestions({surveyId:_survey.recentSurvey}));
       dispatch(recentQuestion({surveyId:_survey.recentSurvey}));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [_survey.recentSurvey])
 
   useEffect(() => {    
